@@ -1,0 +1,5 @@
+platform :ios, '9.0'
+
+target 'PrudentialHack' do
+  pod 'PPBlinkID', '~> 2.10.0'
+end
