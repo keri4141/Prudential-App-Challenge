@@ -20,6 +20,8 @@ https://github.com/ak1394/react-native-tts
 **speech to text**
 https://github.com/wenkesj/react-native-voice
 
+**Card Scan**
+https://microblink.com/en/products/blinkID
 
 ##### What this does
 This was done during a hackathon at Rutgers for Prudential's challenge. It was made to make filling out tedious entries such as first name, last name, city, state, address, height, etc.
