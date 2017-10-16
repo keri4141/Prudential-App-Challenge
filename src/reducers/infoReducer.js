@@ -14,7 +14,7 @@ const initialState = Immutable({
   response:undefined
 });
 
-//root reducer
+//info reducer
 export function info(state = initialState, action = {}) {
 
   switch (action.type) {

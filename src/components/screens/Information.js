@@ -14,8 +14,6 @@ import {connect} from 'react-redux';
 import {BlinkID, MRTDKeys, USDLKeys, EUDLKeys, MYKADKeys} from 'blinkid-react-native';
 import { Container, Header, Content, Card, CardItem, Text, Body,List,ListItem, Button, Input } from 'native-base';
 
-//import ScanAPI from '../../scanAPI';
-
 const licenseKey = Platform.select({
     // iOS license key for applicationID: org.reactjs.native.example.BlinkIDReactNative
     ios: 'YGWP2SLM-IS65QYMK-4XAB2VSM-PDIFWFQY-QXZ262QK-L2L62G6D-Z7LAXJ6O-HBDCKLRW',
@@ -29,8 +27,6 @@ var renderIf = function(condition, content) {
     } 
     return null;
   }
-
-
 
 export class Information extends Component {
     constructor(props) {
@@ -186,56 +182,51 @@ export class Information extends Component {
 
     render() {
     
-            let displayImage = this.state.resultImage;
-                let displayFields = this.state.results;
-                let licenseKeyErrorMessage = this.state.licenseKeyErrorMessage;
-                return (
-                <Container>
-                  <Content>
-                  <Card>
-                    <Text style={styles.label}>Scan card</Text>
-                    <View style={styles.buttonContainer}>
-                      <Button light onPress={this.scan.bind(this)}>
-                         <Text> Scan Here </Text>
-                      </Button>
-                    </View>
-                    <Input>
+      let displayImage = this.state.resultImage;
+      let displayFields = this.state.results;
+      let licenseKeyErrorMessage = this.state.licenseKeyErrorMessage;
+        return (
+          <Container>
+            <Content>
 
-                    </Input>
-                    <Text>
-                        {this.state.lastname}
+              <Card>
+                <Text style={styles.label}>Scan card</Text>
+                <View style={styles.buttonContainer}>
+                  <Button light onPress={this.scan.bind(this)}>
+                    <Text> Scan Here </Text>
+                  </Button>
+                </View>
+                <Text>
+                    {this.state.lastname}
+                </Text>
+                <Text style={styles.results}>
+                  {displayFields}
+                </Text> 
+              </Card>
+
+              <Card>
+                <TouchableOpacity onPress = {() => {this.toResponseOne()}}>
+                  <CardItem>
+                    <Text style={{width:'100%',height:'100%'}}>
+                      Question 1
                     </Text>
+                  </CardItem>
+                </TouchableOpacity>
+              </Card>
 
-           <Text style={styles.results}>{displayFields}</Text>
-
-                    
-                    </Card>
-                <Card >
-                    <TouchableOpacity onPress = {() => {this.toResponseOne()}}>
-                      <CardItem>
-                        <Text style={{width:'100%',height:'100%'}}>
-                           Question 1
-                        </Text>
-                   </CardItem>
-                    </TouchableOpacity>
-                </Card>
-
-
-                <Card >
-                    <TouchableOpacity onPress = {() => {this.toPreview()}}>
-                      <CardItem>
-                        <Text style={{width:'100%',height:'100%'}}>
-                            Preview
-                        </Text>
-                   </CardItem>
-                    </TouchableOpacity>
-                </Card>
-                    
-                 </Content>
-                 
-                 </Container>
-                );
-       
+              <Card >
+                <TouchableOpacity onPress = {() => {this.toPreview()}}>
+                  <CardItem>
+                    <Text style={{width:'100%',height:'100%'}}>
+                        Preview
+                    </Text>
+                  </CardItem>
+                </TouchableOpacity>
+              </Card>
+            </Content>
+          </Container>
+        );
+      
       }
      
 }

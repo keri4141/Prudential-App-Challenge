@@ -142,67 +142,59 @@ export class ResponseOne extends Component {
         Tts.speak("  Has a member of the medical profession ever treated you for or diagonised you high blood pressurech est pain a heart attack coronary artery disease a heart disease?");
        }     
     render() {
-        return(
-            <Container>
-                <Content>
-                <Card>
-                    <TouchableOpacity onPress = {() => {this.Question_1()}}>
-                    <CardItem>
-                        <Text>
+      return(
+         <Container>
+            <Content>
+              <Card>
+                <TouchableOpacity onPress = {() => {this.Question_1()}}>
+                  <CardItem>
+                    <Text>
                      Has a member of the medical profession ever treated you for or diagonised you
                      high blood pressure, chest pain, a heart attack, coronary artery disease, a heart disease?
                      </Text>
-                    </CardItem>
-                    </TouchableOpacity>
-                </Card>
-
-                    <Card>
-                    <CardItem>
-                    {this.state.results.map((result, index) => {
-                        return (
-                          <Text key={`result-${index}`}>
-                            {result}
-                          </Text>
-                        )
-                      })}
-                    </CardItem>
-         <Text
-           style={styles.stat}>
-          {`Started: ${this.state.started}`}
-         </Text>
-         <Text
-           style={styles.stat}>
-           {`Recognized: ${this.state.recognized}`}
-         </Text>
-         <Text
-           style={styles.stat}>
-           {`Error: ${this.state.error}`}
-         </Text>
-
-        
-         <TouchableHighlight onPress={this._startRecognizing.bind(this)}>
-           <Image
-             style={styles.button}
-             source={require('./button.png')}
-           />
-         </TouchableHighlight>
-         <TouchableHighlight onPress={this._stopRecognizing.bind(this)}>
-           <Text
-             style={styles.action}>
-             Stop Recognizing
-           </Text>
-        </TouchableHighlight>
-
-        
-
-                    </Card>
-                </Content>
-            </Container>
+                  </CardItem>
+                </TouchableOpacity>
+              </Card>
+              <Card>
+                <CardItem>
+                  {this.state.results.map((result, index) => {
+                      return (
+                        <Text key={`result-${index}`}>
+                          {result}
+                        </Text>
+                      )
+                    })}
+                </CardItem>
+                <Text
+                  style={styles.stat}>
+                  {`Started: ${this.state.started}`}
+                </Text>
+                <Text
+                  style={styles.stat}>
+                  {`Recognized: ${this.state.recognized}`}
+                </Text>
+                <Text
+                  style={styles.stat}>
+                  {`Error: ${this.state.error}`}
+                </Text>
+                <TouchableHighlight onPress={this._startRecognizing.bind(this)}>
+                  <Image
+                    style={styles.button}
+                    source={require('./button.png')}
+                  />
+                </TouchableHighlight>
+                <TouchableHighlight onPress={this._stopRecognizing.bind(this)}>
+                  <Text
+                    style={styles.action}>
+                    Stop Recognizing
+                  </Text>
+                </TouchableHighlight>
+              </Card>
+          </Content>
+        </Container>
         );
     }
 }
-
-
 
 ResponseOne.propTypes={
     navigator: PropTypes.object
